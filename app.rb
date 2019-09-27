@@ -64,9 +64,10 @@ session[:user] = nil
 redirect '/'
 end
 
-get '/counts/:id/add' do
+post '/counts/:id/add' do
 
-count = Count.first
+
+count = Count.find_by(number)
 count.number = count.number + 1
 count.save
 redirect '/'

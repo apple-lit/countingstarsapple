@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2019_09_26_075732) do
 
   create_table "counts", force: :cascade do |t|
     t.string "name"
-    t.integer "number"
+    t.integer "number", default: 0
     t.string "image"
     t.integer "user_id"
     t.datetime "created_at", null: false

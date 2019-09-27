@@ -21,7 +21,7 @@
 	<h2><%= count.number %></h2>
 	<p><%= User.find(count.user_id).name %></p>
 
-	<form action='/' method="post">
+	<form action='/count/<% count.id %>/add' method="post">
 	<input type="submit" value="+">
 	<% end %>
 	</form>
