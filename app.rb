@@ -7,9 +7,16 @@ require './models'
 enable :sessions
 
 
+helpers do
+  def current_user
+    User.find_by(id: session[:user])
+  end
+end
+
+
 get '/' do
 
-@number = Count.first.number
+@counts = Count.all.order('id desc')
 
   erb :index
 end
@@ -72,6 +79,15 @@ get '/counts/:id' do
 end
 
 get '/new' do
+
+erb :newcount
+
+end
+
+post '/new' do
+  current_user.counts.create(name params[:title])
+
+  redirect '/'
 
 end
 

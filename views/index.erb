@@ -10,17 +10,22 @@
 	<h2>未ログイン</h2>
 	<% else %>
 	<a href="/signout">ログアウト</a>
-	<h2><%= User.find(session[:user]).name%>としてログイン</h2>
-	<h2><%= @number %></h2>
-	<form action='/counts/<% count.id %>/add' method="post">
 
+	<h2><%= User.find(session[:user]).name%>としてログイン</h2>
+
+	<a href="/new">Create New Count</a>
+
+	<% @counts.each do |count| %>
+	<h2><%= count.name  %></h2>
+	<h2><%= count.number %></h2>
+	<%= User.find(count.user_id).name %>
+
+	<form action='/' method="post">
 	<input type="submit" value="+">
+	<% end  %>
 	</form>
 
 	<% end %>
-
-
-
 
 </body>
 </html>
