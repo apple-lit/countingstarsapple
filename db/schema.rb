@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 2019_09_26_075732) do
     t.string "name"
     t.integer "number"
     t.string "image"
-    t.integer "user_id_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id_id"], name: "index_counts_on_user_id_id"
+    t.index ["user_id"], name: "index_counts_on_user_id"
   end
 
   create_table "user_counts", force: :cascade do |t|

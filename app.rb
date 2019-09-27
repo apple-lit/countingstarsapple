@@ -8,6 +8,9 @@ enable :sessions
 
 
 get '/' do
+
+@number = Count.first.number
+
   erb :index
 end
 
@@ -51,7 +54,7 @@ get '/counts/:id/add' do
 count = Count.first
 count.number = count.number + 1
 count.save
-redirect '/counts/:id/add'
+redirect '/'
 
 end
 
