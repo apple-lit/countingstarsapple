@@ -7,6 +7,15 @@ require './models'
 enable :sessions
 
 
+before do
+  Dotenv.load
+  Cloudinary.config do |config|
+    config.cloud_name = ENV['CLOUD_NAME']
+    config.api_key = ENV['CLOUDINARY_API_KEY']
+    config.api_secret = ENV['CLOUDINARY_API_SECRET']
+  end
+end
+
 helpers do
   def current_user
     User.find_by(id: session[:user])
@@ -17,7 +26,6 @@ end
 get '/' do
 
 @counts = Count.all.order('id desc')
-
   erb :index
 end
 
@@ -85,7 +93,15 @@ erb :newcount
 end
 
 post '/new' do
-  current_user.counts.create(name params[:title])
+
+  img_url = ''
+  if params[:file]
+    img = params[:file]
+    tempfile = img[:tempfile]
+    upload = Cloudinary::Uploader.upload(tempfile.path)
+    img_url = upload['url']
+  end
+Count.create(name: params[:title], user_id: current_user.id, image: img_url)
 
   redirect '/'
 

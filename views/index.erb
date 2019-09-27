@@ -16,13 +16,14 @@
 	<a href="/new">Create New Count</a>
 
 	<% @counts.each do |count| %>
+	<div class="image" style="overflow:hidden; height:100px; backgrond-size:cover; background-image:url(<%= count.image %>;)"></div>
 	<h2><%= count.name  %></h2>
 	<h2><%= count.number %></h2>
-	<%= User.find(count.user_id).name %>
+	<p><%= User.find(count.user_id).name %></p>
 
 	<form action='/' method="post">
 	<input type="submit" value="+">
-	<% end  %>
+	<% end %>
 	</form>
 
 	<% end %>
