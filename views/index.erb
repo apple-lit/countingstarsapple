@@ -11,6 +11,15 @@
 	<% else %>
 	<a href="/signout">ログアウト</a>
 	<h2><%= User.find(session[:user]).name%>としてログイン</h2>
+
+	<form action='/counts/<% count_id %>/add'>
+	<input type="submit" value="+">
+	</form>
+
 	<% end %>
+
+
+
+
 </body>
 </html>

@@ -5,7 +5,8 @@ if development?
 end
 
 class Count < ActiveRecord::Base
-  has_many :users
+  has_many :users, through: :user_counts
+  has_many :user_counts
 end
 
 class User < ActiveRecord::Base

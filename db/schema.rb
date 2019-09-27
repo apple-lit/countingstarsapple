@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(version: 2019_09_26_075732) do
   end
 
   create_table "user_counts", force: :cascade do |t|
-    t.integer "user_id_id"
-    t.integer "count_id_id"
+    t.integer "user_id"
+    t.integer "count_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["count_id_id"], name: "index_user_counts_on_count_id_id"
-    t.index ["user_id_id"], name: "index_user_counts_on_user_id_id"
+    t.index ["count_id"], name: "index_user_counts_on_count_id"
+    t.index ["user_id"], name: "index_user_counts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
