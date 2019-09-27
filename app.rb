@@ -66,7 +66,6 @@ end
 
 post '/counts/:id/add' do
 
-
 count = Count.find_by(number)
 count.number = count.number + 1
 count.save
