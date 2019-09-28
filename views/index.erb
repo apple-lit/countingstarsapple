@@ -18,10 +18,10 @@
 	<% @counts.each do |count| %>
 	<div class="image" style="overflow:hidden; height:100px; width:150px; background-image:url(<%= count.image %>); background-size:cover;"></div>
 	<h2><%= count.name  %></h2>
-	<h2><%= count.number %></h2>
+	<h2><%= Count.find(user_counts.count_id).number %></h2>
 	<p><%= User.find(count.user_id).name %></p>
 
-	<form action='/count/<% count.id %>/add' method="post">
+	<form action='/count/<% Count.find(user_counts.count_id) %>/add' method="post">
 	<input type="submit" value="+">
 	<% end %>
 	</form>
