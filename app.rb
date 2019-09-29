@@ -66,9 +66,12 @@ end
 
 post '/counts/:id/add' do
 
-count = Count.find_by(number)
-count.number = count.number + 1
-count.save
+count = Count.find_by(count_id)
+unless count.nil?
+  count.number = count.number + 1
+  count.save
+end
+
 redirect '/'
 
 end
@@ -108,5 +111,6 @@ Count.create(name: params[:title], user_id: current_user.id, image: img_url)
 end
 
 get '/user/:id' do
+
 
 end
