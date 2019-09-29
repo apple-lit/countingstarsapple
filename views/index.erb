@@ -3,8 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>タイトル</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
-<body>
+<body   style="width:100vw; height:100vh; background-image:url(../img/signup.jpg); background-size:cover;">
 	<% unless session[:user] %>
 	<a href="/signin">ログイン</a> <a href="/signup">新規登録</a><br>
 	<h2>未ログイン</h2>
@@ -18,7 +20,7 @@
 	<% @counts.each do |count| %>
 	<div class="image" style="overflow:hidden; height:100px; width:150px; background-image:url(<%= count.image %>); background-size:cover;"></div>
 	<h2><%= count.name  %></h2>
-	<h2><%= Count.find(count.id).number %></h2>
+	<h2><%= Count.find(count.user_id).number %></h2>
 	<p><%= User.find(count.user_id).name %></p>
 
 	<form action='/count/<% Count.find(count.id) %>/add' method="post">
