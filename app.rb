@@ -66,7 +66,8 @@ end
 
 post '/counts/:id/add' do
 
-count = Count.find_by(count_id)
+# @count = Count.find_by(count_id)
+@count = Count.find(count.user_id).number
 unless count.nil?
   count.number = count.number + 1
   count.save
