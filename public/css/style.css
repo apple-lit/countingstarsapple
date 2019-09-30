@@ -104,15 +104,18 @@ h2{
 .countBox{
   overflow:hidden;
   background-color: red;
-  width:200px;
+  /* width:225px; */
   margin:10px;
   float: left;
+  height:300px;
+  text-align: center;
 }
+
 
 .main{
   overflow:hidden;
-  width:70vw;
-  background-color: blue;
+  width:75vw;
+  /* background-color: blue; */
   margin:0 auto;
   display:block;
   margin-top:10px;
@@ -128,4 +131,40 @@ h2{
   width:200px;
   margin: 0 auto;
   margin-top :10px;
+}
+
+.submitBtn{
+  width:225px;
+  background:rgb(50, 115, 255);
+  color:#fff;
+  /* height:30px; */
+  font-size:30px;
+  padding:5px;
+  margin:5px;
+  border-radius:5px;
+  border:none;
+}
+
+.loginname{
+  color:#fff;
+  float: right;
+  padding:10px;
+  margin: 5px;
+}
+
+.searchbox{
+  float: right;
+  padding:5px;
+  margin: 15px 5px;
+  border-radius:3px;
+}
+
+.searchBtn{
+  display:block;
+  float: right;
+  padding:5px;
+  margin: 15px 5px;;
+  background-color: #999;
+  color:#fff;
+  border-radius:3px;
 }
