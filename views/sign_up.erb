@@ -3,16 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>タイトル</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-
+<body class="indexbody">
+<div class="signin-container">
     <form action="/signup" method="post">
-    <input type="text" name="name" placeholder="ユーザ名"><br>
-    <input type="password" name="password" placeholder="パスワードを入力"><br>
-    <input type="password" name="password_confirmation" placeholder="パスワードの確認"><br>
-    <input type="submit" value="登録">
+    <p>星でも数えようじゃないか</p><br>
+  <img src="/img/counting_stars_logo.png" alt="" style="width:150px;"><br>
+    <input type="text" name="name" placeholder="ユーザ名" class="username-textbox"><br>
+    <input type="password" name="password" placeholder="パスワードを入力" class="password-textbox"><br>
+    <input type="password" name="password_confirmation" placeholder="パスワードの確認" class="password-textbox"><br>
+    <input type="submit" value="登録" class="loginBtn">
     </form>
-
+</div>
 
 </body>
 </html>

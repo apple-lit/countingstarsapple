@@ -8,7 +8,6 @@
 <body>
 
 	<% unless session[:user] %>
-	<div class="loginBtn">
 	<a href="/signin">ログイン</a> <a href="/signup">新規登録</a><br> </div>
 	<h2>未ログイン</h2>
 	<% else %>
@@ -17,7 +16,6 @@
 	<h2><%= User.find(session[:user]).name%>としてログイン</h2>
 
 	<a href="/new">Create New Count</a>
-</nav>
 	<% @counts.each do |count| %>
 	<div class="image" style="overflow:hidden; height:100px; width:150px; background-image:url(<%= count.image %>); background-size:cover;"></div>
 	<h2><%= count.name  %></h2>

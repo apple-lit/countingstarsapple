@@ -26,7 +26,7 @@ end
 get '/' do
 
 @counts = Count.all.order('id desc')
-  erb :sign_in
+  erb :index
 end
 
 
