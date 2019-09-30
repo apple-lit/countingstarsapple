@@ -13,28 +13,30 @@
 		<h2>未ログイン</h2>
 	<% else %>
 		<a href="/signout" class="signoutBtn">Signout</a>
-		<p class="loginname"><%= User.find(session[:user]).name%></p>
+		<a href="/userpage" class="loginname userpagelink"><%= User.find(session[:user]).name%></a>
 		<input type="submit" value="Search" class="searchBtn">
 		<input type="text" name="search" placeholder="word" class="searchbox">
 
-	<% end %>
+
 </nav>
 
 <a href="/new" class="createNewCount">CREATE NEW COUNT</a><br>
 <div class="main">
 	<% @counts.each do |count| %>
 	<div class="countBox-container">
-		<div class="countBox" style="overflow:hidden; background-image:url(<%= count.image %>); background-size:cover;">
+	<a href="/count/<%= count.id %>">
+	<div class="countBox" style="overflow:hidden; background-image:url(<%= count.image %>); background-size:cover;">
 
 		<h2><%= count.name  %></h2><br>
 		<h2 style="font-size:100px; width:100%; text-align:center;"><%= count.number %></h2>
-		<p><%= User.find(count.user_id).name %></p>
+		<a href="/userpage" class="userpagelink"><%= User.find(count.user_id).name %></a>
 	<form action='/count/<%= count.id %>/add' method="post">
 		<input type="submit" value="+" class="submitBtn">
 	</form>
+	</a>
 	</div>
 	<% end %>
 </div>
-
+	<% end %>
 </body>
 </html>

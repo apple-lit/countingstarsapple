@@ -78,17 +78,21 @@ redirect '/'
 
 end
 
-get '/counts_detail/:id/add' do
+post '/count_detail/:id/add' do
 
-  count = Count.first
+  count = Count.find(params[:id])
+  unless count.nil?
   count.number = count.number + 1
   count.save
-  redirect '/counts_detail/:id/add'
+  end
+  redirect '/count/' + params[:id]
 
 end
 
-get '/count/:id' do
 
+get '/count/:id' do
+@count_detail = Count.find_by(id: params[:id])
+erb :count_detail
 end
 
 get '/new' do
@@ -115,4 +119,8 @@ end
 get '/user/:id' do
 
 
+end
+
+get '/userpage' do
+  erb :userpage
 end

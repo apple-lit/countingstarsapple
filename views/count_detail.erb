@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Document</title>
+</head>
+<nav>
+	<a href="/"><img src="/img/counting_stars_logo2.png"></a>
+	<% unless session[:user] %>
+		<a href="/signin">ログイン</a> <a href="/signup">新規登録</a><br> </div>
+		<h2>未ログイン</h2>
+	<% else %>
+		<a href="/signout" class="signoutBtn">Signout</a>
+		<a href="/userpage" class="loginname userpagelink"><%= User.find(session[:user]).name%></a>
+		<input type="submit" value="Search" class="searchBtn">
+		<input type="text" name="search" placeholder="word" class="searchbox">
+<%end%>
+
+</nav>
+<body style="background-image:url(<%= @count_detail.image %>); width:100vw; height:100vh; background-size:cover; background-repeat:no-repeat;">
+
+
+
+<h2 style="font-size:100px; width:100%; text-align:center; position:absolute; top:50%; transform:translateY(-50%);"><%= @count_detail.number %></h2>
+<form action="/count_detail/<%= @count_detail.id %>/add" method="post">
+<input type="submit" value="+" class="submitBtn detailPlus">
+</form>
+
+</body>
+</html>

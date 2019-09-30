@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>タイトル</title>
+	<link rel="stylesheet" href="/css/style.css" media="all" type="text/css">
+</head>
+
+
+<nav>
+	<a href="/"><img src="/img/counting_stars_logo2.png"></a>
+	<% unless session[:user] %>
+		<a href="/signin">ログイン</a> <a href="/signup">新規登録</a><br> </div>
+		<h2>未ログイン</h2>
+	<% else %>
+		<a href="/signout" class="signoutBtn">Signout</a>
+		<a href="/userpage" class="loginname userpagelink"><%= User.find(session[:user]).name%></a>
+		<input type="submit" value="Search" class="searchBtn">
+		<input type="text" name="search" placeholder="word" class="searchbox">
+
+<% end %>
+</nav>
+
+<body>
+  <div class="user-container">
+    <div class="userinside-container">
+      <img src="" alt="">
+      <p><%= User.find(session[:user]).name %></p>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>
