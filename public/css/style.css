@@ -58,11 +58,74 @@ color:#fff;
 }
 
 .loginBtn :hover{
-  background: #0000003a;
+  width:300px;
+  height:30px;
+  border-radius: 3px;
+  border:solid 1px #000;
+  background:rgba(0, 0, 0, 0.123);
+  padding:3px 5px;
+  margin-bottom:15px;
+  color:#fff;
 }
 
 .signupBtn{
   color:#fff;
   font-size:10px;
   text-decoration: none;
+}
+
+nav {
+  width:100vw;
+  height:8vh;
+  background-color: #000;
+}
+
+.signoutBtn{
+  color:#fff;
+  float: right;
+  text-decoration:none;
+  padding:10px;
+  margin: 5px;
+}
+
+nav img{
+  float: left;
+  padding:10px;
+  margin: 5px;
+}
+
+h2{
+  color:#fff;
+  float: left;
+  padding: 10px;
+  margin: 5px;
+}
+
+.countBox{
+  overflow:hidden;
+  background-color: red;
+  width:200px;
+  margin:10px;
+  float: left;
+}
+
+.main{
+  overflow:hidden;
+  width:70vw;
+  background-color: blue;
+  margin:0 auto;
+  display:block;
+  margin-top:10px;
+}
+
+.createNewCount{
+  display:block;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  background-color:rgb(255, 188, 43);
+  color:#fff;
+  width:200px;
+  margin: 0 auto;
+  margin-top :10px;
 }

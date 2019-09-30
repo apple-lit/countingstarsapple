@@ -6,30 +6,31 @@
 	<link rel="stylesheet" href="/css/style.css" media="all" type="text/css">
 </head>
 <body>
-
+<nav>
+	<img src="/img/counting_stars_logo2.png">
 	<% unless session[:user] %>
-	<a href="/signin">ログイン</a> <a href="/signup">新規登録</a><br> </div>
-	<h2>未ログイン</h2>
+		<a href="/signin">ログイン</a> <a href="/signup">新規登録</a><br> </div>
+		<h2>未ログイン</h2>
 	<% else %>
-	<a href="/signout">ログアウト</a>
+		<a href="/signout" class="signoutBtn">Signout</a>
+		<h2><%= User.find(session[:user]).name%></h2>
+	<% end %>
+</nav>
 
-	<h2><%= User.find(session[:user]).name%>としてログイン</h2>
-
-	<a href="/new">Create New Count</a>
+<a href="/new" class="createNewCount">CREATE NEW COUNT</a><br>
+<div class="main">
 	<% @counts.each do |count| %>
-	<div class="image" style="overflow:hidden; height:100px; width:150px; background-image:url(<%= count.image %>); background-size:cover;"></div>
-	<h2><%= count.name  %></h2>
+		<div class="countBox" style="overflow:hidden; background-image:url(<%= count.image %>); background-size:cover;">
 
-	<h2><%= Count.find(count.user_id).number %></h2>
-
-	<p><%= User.find(count.user_id).name %></p>
-
+		<h2><%= count.name  %></h2>
+		<h2><%= count.number %></h2>
+		<p><%= User.find(count.user_id).name %></p>
 	<form action='/count/<%= count.id %>/add' method="post">
-	<input type="submit" value="+">
-	<% end %>
+		<input type="submit" value="+">
 	</form>
-
+	</div>
 	<% end %>
+</div>
 
 </body>
 </html>

@@ -65,8 +65,9 @@ redirect '/'
 end
 
 post '/count/:id/add' do
-
-count = UserCount.find_by(user_counts.count_id)
+  puts "hoge"
+puts params[:id]
+count = Count.find(params[:id])
 # @count = Count.find(count.id).number
 unless count.nil?
   count.number = count.number + 1
