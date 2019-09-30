@@ -182,6 +182,11 @@ h2{
   /* background-color: red; */
   margin:0 auto;
   margin-top:5%;
+  overflow:hidden;
+}
+
+.userinside-container{
+  overflow:hidden;
 }
 
 .userinside-container p{

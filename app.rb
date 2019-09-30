@@ -4,6 +4,7 @@ require 'sinatra/reloader' if development?
 
 require 'sinatra/activerecord'
 require './models'
+require 'pry'
 enable :sessions
 
 
@@ -52,7 +53,17 @@ redirect '/'
 end
 
 post '/signup' do
-  @user = User.create(name:params[:name], password:params[:password], password_confirmation:params[:password_confirmation])
+img_url = ''
+
+
+  if params[:file]
+    img = params[:file]
+    tempfile = img[:tempfile]
+    upload = Cloudinary::Uploader.upload(tempfile.path)
+    img_url = upload['url']
+  end
+
+  @user = User.create(name:params[:name], password:params[:password], password_confirmation:params[:password_confirmation], image: img_url)
   if @user.persisted?
     session[:user] = @user.id
   end

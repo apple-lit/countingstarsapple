@@ -7,10 +7,11 @@
 </head>
 <body class="indexbody">
 <div class="signin-container">
-    <form action="/signup" method="post">
+    <form action="/signup" method="post" enctype="multipart/form-data">
     <p>星でも数えようじゃないか</p><br>
   <img src="/img/counting_stars_logo.png" alt="" style="width:150px;"><br>
     <input type="text" name="name" placeholder="ユーザ名" class="username-textbox"><br>
+    <input type="file" name="file" style="color:white;"><br><br>
     <input type="password" name="password" placeholder="パスワードを入力" class="password-textbox"><br>
     <input type="password" name="password_confirmation" placeholder="パスワードの確認" class="password-textbox"><br>
     <input type="submit" value="登録" class="loginBtn">
