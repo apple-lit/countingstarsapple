@@ -103,6 +103,7 @@ end
 
 get '/count/:id' do
 @count_detail = Count.find_by(id: params[:id])
+@count_users = UserCount.find_by(user_id: params[:user_id])
 erb :count_detail
 end
 
