@@ -133,5 +133,8 @@ get '/user/:id' do
 end
 
 get '/userpage' do
+
+  @counts = Count.all.order('id desc')
+
   erb :userpage
 end
