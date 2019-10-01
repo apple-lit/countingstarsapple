@@ -103,7 +103,7 @@ h2{
 
 .countBox{
   overflow:hidden;
-  background-color: red;
+  /* background-color: red; */
   /* width:225px; */
   margin:10px;
   float: left;
