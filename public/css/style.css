@@ -202,10 +202,17 @@ h2{
   transform:translateX(-50%);
 }
 
+.who-counted-wrapper{
+display:block;
+overflow:hidden;
+width:120px;
+float: left;
+
+}
+
 .who-counted-container{
-  position:absolute;
-  bottom:0;
-  left:0;
+  float: left;
+  display:block;
   width: 120px;
   height:150px;
   overflow:hidden;

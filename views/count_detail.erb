@@ -28,11 +28,15 @@
 <form action="/count_detail/<%= @count_detail.id %>/add" method="post">
 <input type="submit" value="+" class="submitBtn detailPlus">
 </form>
-
+<% @users.each do |user|  %>
+	<% if UserCount.find_by(count_id: @count_detail.id, user_id:user.id)%>
+<div class="who-counted-wrapper">
 <div class="who-counted-container">
-<div class="who-counted-img" style="background-image:url(<%= @count_users.image %>)"></div><br>
-<p><%= @count_users.name %></p>
+<div class="who-counted-img" style="background-image:url(<%= user.image %>)"></div><br>
+<p><%= user.name %></p>
 </div>
-
+</div>
+<% end %>
+<% end %>
 </body>
 </html>

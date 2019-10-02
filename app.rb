@@ -105,7 +105,7 @@ end
 
 get '/count/:id' do
 @count_detail = Count.find_by(id: params[:id])
-@count_users = UserCount.where(user_id: params[:user_id])
+@users = User.all.order('id desc')
 erb :count_detail
 end
 
