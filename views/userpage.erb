@@ -31,7 +31,7 @@
 
 <div class="main">
 	<% @counts.each do |count| %>
-	<% if User.find(session[:user]).id == @count_users %>
+	<% if UserCount.find_by(count_id: count.id, user_id:session[:user]) %>
 	<div class="countBox-container">
 	<a href="/count/<%= count.id %>">
 	<div class="countBox" style="overflow:hidden; background-image:url(<%= count.image %>); background-size:cover; background-position:center center;">

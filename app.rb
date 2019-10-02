@@ -83,6 +83,7 @@ count = Count.find(params[:id])
 unless count.nil?
   count.number = count.number + 1
   count.save
+  UserCount.create(user_id: current_user.id, count_id: params[:id])
 end
 
 redirect '/'
@@ -95,6 +96,7 @@ post '/count_detail/:id/add' do
   unless count.nil?
   count.number = count.number + 1
   count.save
+  UserCount.create(user_id: current_user.id, count_id: params[:id])
   end
   redirect '/count/' + params[:id]
 
@@ -136,6 +138,6 @@ end
 get '/userpage' do
 
   @counts = Count.all.order('id desc')
-
+  @count_users = UserCount.where(user_id: params[:user_id])
   erb :userpage
 end
